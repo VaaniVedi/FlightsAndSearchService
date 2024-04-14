@@ -14,7 +14,7 @@ class CityRepository{
         }
     }
 
-    async deleteCity(){
+    async deleteCity(cityId){
         try {
             await City.destroy({
                 where: {
@@ -28,11 +28,12 @@ class CityRepository{
         }
     }
 
-    async updateCity(cityId, data){
+    async updateCity(cityId, data){// data is: `{name:"Delhi"}`
+                                // passing 2 parameters, 1st to identify which column needs to be updated and 2nd is with what data it is be updated
         try{
             const city = await City.update(data, {
                 where: {
-                    id: cityID
+                    id: cityId
                 }
             });
             return city;
@@ -42,7 +43,7 @@ class CityRepository{
         }
     }
 
-    async getCity(){
+    async getCity(cityId){
         try{
             const city = await City.findByPk(cityId);
             return city;
