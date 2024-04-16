@@ -36,8 +36,7 @@ class CityRepository{
             //const city = await City.update(data, {
              //   where: {
             //        id: cityId
-             //   }
-             //   
+             //   }  
             //});
             //for getting updated data in mysql we use the below approach
             const city = await City.findByPk(cityId);
@@ -57,6 +56,16 @@ class CityRepository{
         } catch(error){
             console.log("Something went wrong in the repositroy layer");
             throw {error};
+        }
+    }
+
+    async getAllCities(){
+        try{
+            const cities = await City.findAll();
+            return cities;
+        }catch{error}{
+            console.log("Something went wrong at service layer");
+            throw {error};            
         }
     }
 }
