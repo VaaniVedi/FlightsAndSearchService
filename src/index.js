@@ -4,6 +4,10 @@ const bodyParser = require("body-parser")
 const {PORT} = require('./config/serverCongif');
 const ApiRoutes = require('./routes/index');
 
+const {City,Airport} = require('./models/index');
+const db = require('./models/index');
+const city = require("./models/city");
+
 const setupAndStartServer = async () => {
 
     //create the express object
@@ -16,6 +20,12 @@ const setupAndStartServer = async () => {
 
     app.listen(PORT, async () =>{
         console.log(`Server started at ${PORT}`);
+        if(process.env.SYNC_DB){
+            db.sequelize.sync({
+                alter:true
+            });
+        }
+        
     });
 }
 
