@@ -3,10 +3,8 @@ const bodyParser = require("body-parser")
 
 const {PORT} = require('./config/serverCongif');
 const ApiRoutes = require('./routes/index');
-
-const {City,Airport} = require('./models/index');
+ 
 const db = require('./models/index');
-const city = require("./models/city");
 
 const setupAndStartServer = async () => {
 
@@ -25,7 +23,6 @@ const setupAndStartServer = async () => {
                 alter:true
             });
         }
-        
     });
 }
 
