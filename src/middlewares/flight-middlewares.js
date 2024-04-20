@@ -1,3 +1,4 @@
+const{ClientErrorCodes}=require('../utils/error-codes')
 const validateCreateFlight = (req,res,next) =>{
     if(
         !req.body.flightNumber || 
@@ -8,7 +9,7 @@ const validateCreateFlight = (req,res,next) =>{
         !req.body.departureTime ||
         !req.body.price){
         //if any of the body params is missing we come inside the if block
-        return res.status(400).json({
+        return res.status(ClientErrorCodes.Bad_REQUEST).json({
             //error code 400 is for bad request i.e. you are not following API Contract
             data: {},
             success: false,
