@@ -12,10 +12,12 @@ router.get('/city',CityController.getAll);
 router.patch('/city/:id',CityController.update);
 
 router.post('/airports',AirportController.create); //done
+/*
 router.delete('/airports/:id',AirportController.destroy); //done
 router.get('/airports/:id',AirportController.get); //done
 router.get('/airports',AirportController.getAll);  //done
 router.patch('/airports/:id',AirportController.update); //done
+*/
 
 router.post('/flights',FlightController.create);
 router.get('/flights',FlightController.getAll);

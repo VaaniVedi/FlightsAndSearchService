@@ -1,4 +1,4 @@
-const { Op } = require ('sequelize');
+/*const { Op } = require ('sequelize');
 
 const {Airport} = require ('../models/index');
 class AirportRepository{
@@ -72,6 +72,17 @@ class AirportRepository{
             console.log("Something went wrong at service layer");
             throw {error};            
         }
+    }
+}
+
+module.exports=AirportRepository;
+*/
+
+const CrudRepository = require('./crud-repository');
+const {Airport } = require('../models/index')
+class AirportRepository extends CrudRepository{
+    constructor(){
+        super(Airport);
     }
 }
 

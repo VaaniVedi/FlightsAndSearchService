@@ -1,4 +1,4 @@
-const {AirportRepository} = require('../repository/index');
+/*const {AirportRepository} = require('../repository/index');
 
 class AirportService{
     constructor(){
@@ -53,6 +53,19 @@ class AirportService{
             console.log("Something went wrong at service layer");
             throw {error};
         }
+    }
+}
+
+module.exports = AirportService;
+*/
+
+const CrudService = require('./crud-service');
+const {AirportRepository} = require('../repository/index');
+
+class AirportService extends CrudService{
+    constructor(){
+        const airportRepository =  new AirportRepository();
+        super(airportRepository);
     }
 }
 

@@ -1,4 +1,4 @@
-const{ AirportService }= require('../services/index');
+/*const{ AirportService }= require('../services/index');
 
 const airportService = new AirportService();
 //CREATE-> /airport
@@ -111,3 +111,31 @@ module.exports = {
     update,
     getAll
 }
+*/
+
+const {AirportService} = require('../services/index');
+
+const airportService = new AirportService();
+
+const create = async (req,res) => {
+    try {
+        const response = await airportService.create(req.body);
+        return res.status(201).json({
+            data: response,
+            successs: true,
+            message: 'Successfully created the airport',
+            err: {}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            data: {},
+            success: false,
+            err: error,
+            message: 'Cannot create a new airport'
+        })
+    }
+}
+
+module.exports = {
+    create
+};

@@ -1,6 +1,6 @@
-#Welcome to Flight service
+# Welcome to Flight service
 
-##Project Setup
+## Project Setup
 - Clone the project on your local
 - Execute `npm install` on the same path as your root    directory of the downloaded project
 - Create a `.env` file in the root directory and add the following environment variable
@@ -21,21 +21,23 @@
 and then execute
 `npx sequelize db:migrate`
 
-##DB Design
-    - Airplane Table
-    - Flight
-    - Airport
-    - City
+## DB Design
+
+- Airplane Table
+- Flight
+- Airport
+- City
 
 -A flight belongs to an airplane but one airplane can be used in multiple flights
 -A city has many airports but one airport belongs to a single city 
 -One airport can have many flights, but a flight belongs to one airport
 
 
-##Tables
-###City -> id, name, created_at, updated_at
-###Airport -> id, name, address, city_id, created_at, updated_at
-        Relationship -> city has many airports and Airport belongs to a city (one to many)
+## Tables
+### City -> id, name, created_at, updated_at
+### Airport -> id, name, address, city_id, created_at, updated_at
+        
+- Relationship -> city has many airports and Airport belongs to a city (one to many)
 
 ```
 `npx sequelize model:generate --name Airport --attributes name:String, address:String, cityId:integer`
